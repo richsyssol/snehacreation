@@ -41,6 +41,7 @@ class CategoryResource extends Resource
                         ->unique(ignoreRecord: true),
                         
                     Forms\Components\FileUpload::make('image')
+                        ->disk('public_uploads')
                         ->image()
                         ->directory('categories')
                         ->columnSpanFull(),
@@ -67,6 +68,7 @@ public static function table(Table $table): Table
     return $table
         ->columns([
             Tables\Columns\ImageColumn::make('image')
+                 ->disk('public_uploads')
                 ->label('Image'),
                 
             Tables\Columns\TextColumn::make('name_en')

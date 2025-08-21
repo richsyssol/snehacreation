@@ -91,7 +91,7 @@ class ProductResource extends Resource
                 Forms\Components\Section::make('Media')
                     ->schema([
                         Forms\Components\FileUpload::make('images')
-                            ->disk("public")
+                            ->disk("public_uploads")
                             ->image()
                             ->multiple()
                             ->directory('products')
@@ -125,7 +125,7 @@ class ProductResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\ImageColumn::make('images')
-                    ->disk("public")
+                    ->disk("public_uploads")
                     ->label('Image')
                     ->stacked()
                     ->circular()

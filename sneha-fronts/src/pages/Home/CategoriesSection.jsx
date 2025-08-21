@@ -124,7 +124,7 @@ const CategoriesSection = () => {
                   <div className="relative overflow-hidden rounded-xl aspect-square">
                     {category.image ? (
                       <img
-                        src={`http://127.0.0.1:8000/storage/${category.image}`}
+                        src={`http://127.0.0.1:8000/uploads/${category.image}`}
                         alt={category[`name_${language}`] || category.name_en}
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                       />
