@@ -73,7 +73,7 @@ const ProductDetailPage = () => {
               <div className="aspect-square rounded-xl overflow-hidden mb-4">
                 {product.images && product.images.length > 0 ? (
                   <img
-                    src={`http://127.0.0.1:8000/storage/${product.images[currentImage]}`}
+                    src={`http://127.0.0.1:8000/uploads/${product.images[currentImage]}`}
                     alt={product[`name_${language}`] || product.name_en}
                     className="w-full h-full object-cover"
                   />
@@ -97,7 +97,7 @@ const ProductDetailPage = () => {
                       }`}
                     >
                       <img
-                        src={`http://127.0.0.1:8000/storage/${image}`}
+                        src={`http://127.0.0.1:8000/uploads/${image}`}
                         alt={`Thumbnail ${index + 1}`}
                         className="w-full h-full object-cover"
                       />

@@ -133,7 +133,7 @@ const ProductsPage = () => {
                   <div className="relative aspect-square overflow-hidden">
                     {product.images && product.images.length > 0 ? (
                       <img
-                        src={`http://127.0.0.1:8000/storage/${product.images[0]}`}
+                        src={`http://127.0.0.1:8000/uploads/${product.images[0]}`}
                         alt={product[`name_${language}`] || product.name_en}
                         className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
                       />
