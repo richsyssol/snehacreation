@@ -26,7 +26,7 @@ const ProductCard = ({ product, index }) => {
           <h3 className="font-medium text-gray-900 mb-1">{product.name}</h3>
           <p className="text-sm text-gray-500 mb-2">{product.category}</p>
           <div className="flex justify-between items-center">
-            <span className="font-bold text-gray-900">₹{product.price}</span>
+            {/* <span className="font-bold text-gray-900">₹{product.price}</span> */}
             <div className="flex gap-2">
               <button
                 onClick={(e) => {

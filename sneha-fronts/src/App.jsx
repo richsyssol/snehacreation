@@ -10,6 +10,7 @@ import Home from "./pages/Home/Home";
 import PageNotFound from "./pages/ErrorPages/NotFound";
 import ProductsPage from "./pages/Home/ProductsPage";
 import ProductDetailPage from "./pages/Home/ProductDetailPage";
+import ProductPhotos from "./pages/Gallery/ProductPhotos";
 
 function App() {
   const router = createBrowserRouter(
@@ -19,6 +20,11 @@ function App() {
         <Route path="*" element={<PageNotFound />} />
         <Route path="/category/:slug" element={<ProductsPage />} />
         <Route path="/product/:slug" element={<ProductDetailPage />} />
+
+        <Route
+          path="gallery/gallery/product-photos"
+          element={<ProductPhotos />}
+        />
       </Route>
     )
   );
