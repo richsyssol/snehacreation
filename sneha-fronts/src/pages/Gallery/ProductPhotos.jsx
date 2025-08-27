@@ -4,7 +4,7 @@ import {
   galleryItems,
   categories,
   galleryText,
-} from "../../constant/ProductImages";
+} from "../../constant/Gallery/ProductImages";
 import { useLanguage } from "../../contexts/LanguageContext"; // Adjust path as needed
 
 const ProductPhotos = () => {
@@ -18,7 +18,7 @@ const ProductPhotos = () => {
       : galleryItems.filter((item) => item.category === selectedCategory);
 
   return (
-    <section className="min-h-screen bg-[#f8f8f8] py-16 px-4 md:px-8">
+    <section className="min-h-screen bg-[#f8f8f8] py-16 px-4 md:px-8 pt-34">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <motion.div

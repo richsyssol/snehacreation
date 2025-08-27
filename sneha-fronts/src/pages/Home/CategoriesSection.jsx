@@ -46,7 +46,9 @@ const CategoriesSection = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await fetch("http://127.0.0.1:8000/categories");
+        const response = await fetch(
+          "https://snehas.demovoting.com/categories"
+        );
         if (!response.ok) {
           throw new Error("Failed to fetch categories");
         }
@@ -124,7 +126,7 @@ const CategoriesSection = () => {
                   <div className="relative overflow-hidden rounded-xl aspect-square">
                     {category.image ? (
                       <img
-                        src={`http://127.0.0.1:8000/uploads/${category.image}`}
+                        src={`https://snehas.demovoting.com/uploads/${category.image}`}
                         alt={category[`name_${language}`] || category.name_en}
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                       />

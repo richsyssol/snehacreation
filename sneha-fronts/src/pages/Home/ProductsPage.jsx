@@ -147,14 +147,14 @@ const ProductsPage = () => {
                     <h3 className="text-lg font-semibold text-gray-900 mb-2">
                       {product[`name_${language}`] || product.name_en}
                     </h3>
-                    <p className="text-indigo-600 font-bold">
+                    {/* <p className="text-indigo-600 font-bold">
                       ₹{product.price}
-                    </p>
-                    {product.stock_quantity > 0 ? (
+                    </p> */}
+                    {/* {product.stock_quantity > 0 ? (
                       <span className="text-sm text-green-600">In Stock</span>
                     ) : (
                       <span className="text-sm text-red-600">Out of Stock</span>
-                    )}
+                    )} */}
                   </div>
                 </Link>
               </motion.div>

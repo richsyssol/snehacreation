@@ -16,7 +16,7 @@ const FeaturedCollections = () => {
     const fetchProducts = async () => {
       try {
         setLoading(true);
-        const response = await fetch("http://127.0.0.1:8000/products");
+        const response = await fetch("https://snehas.demovoting.com/products");
 
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);

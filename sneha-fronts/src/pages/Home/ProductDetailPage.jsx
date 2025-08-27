@@ -17,7 +17,9 @@ const ProductDetailPage = () => {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const response = await fetch(`http://127.0.0.1:8000/products/${slug}`);
+        const response = await fetch(
+          `https://snehas.demovoting.com/products/${slug}`
+        );
         if (!response.ok) throw new Error("Product not found");
         const data = await response.json();
         setProduct(data.data);
@@ -44,7 +46,7 @@ const ProductDetailPage = () => {
       price: product.price,
       image:
         product.images && product.images.length > 0
-          ? `http://127.0.0.1:8000/uploads/${product.images[0]}`
+          ? `https://snehas.demovoting.com/uploads/${product.images[0]}`
           : null,
       images: product.images,
       category: product.category,
@@ -100,7 +102,7 @@ const ProductDetailPage = () => {
               <div className="aspect-square rounded-xl overflow-hidden mb-4">
                 {product.images && product.images.length > 0 ? (
                   <img
-                    src={`http://127.0.0.1:8000/uploads/${product.images[currentImage]}`}
+                    src={`https://snehas.demovoting.com/uploads/${product.images[currentImage]}`}
                     alt={product[`name_${language}`] || product.name_en}
                     className="w-full h-full object-cover"
                   />
@@ -124,7 +126,7 @@ const ProductDetailPage = () => {
                       }`}
                     >
                       <img
-                        src={`http://127.0.0.1:8000/uploads/${image}`}
+                        src={`https://snehas.demovoting.com/uploads/${image}`}
                         alt={`Thumbnail ${index + 1}`}
                         className="w-full h-full object-cover"
                       />
@@ -150,16 +152,16 @@ const ProductDetailPage = () => {
                 transition={{ delay: 0.3 }}
                 className="mb-6"
               >
-                <h3 className="text-lg font-semibold mb-2">Description</h3>
-                <p className="text-gray-600">
+                {/* <h3 className="text-lg font-semibold mb-2">Description</h3> */}
+                {/* <p className="text-gray-600">
                   {product[`description_${language}`] ||
                     product.description_en ||
                     "No description available"}
-                </p>
+                </p> */}
               </motion.div>
 
               <div className="space-y-4">
-                <div className="flex items-center">
+                {/* <div className="flex items-center">
                   <span className="font-semibold mr-2">Availability:</span>
                   {product.stock_quantity > 0 ? (
                     <span className="text-green-600">
@@ -168,12 +170,12 @@ const ProductDetailPage = () => {
                   ) : (
                     <span className="text-red-600">Out of Stock</span>
                   )}
-                </div>
+                </div> */}
 
-                <div className="flex items-center">
+                {/* <div className="flex items-center">
                   <span className="font-semibold mr-2">Product Code:</span>
                   <span>{product.product_code}</span>
-                </div>
+                </div> */}
 
                 <div className="flex gap-4 pt-4">
                   {product.stock_quantity > 0 && (

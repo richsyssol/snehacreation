@@ -1,48 +1,102 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import {
-  Play,
-  ChevronLeft,
-  ChevronRight,
-  ShoppingCart,
-  Heart,
-  Info,
-} from "lucide-react";
+import { Play, ChevronLeft, ChevronRight, Heart } from "lucide-react";
+import { hero1, hero2, hero3, hero4, hero5 } from "../../assets";
+import { useLanguage } from "../../contexts/LanguageContext";
 
 const HeroSection = () => {
+  const { language } = useLanguage();
+
   const heroContent = [
     {
       id: 1,
-      image_url:
-        "https://images.unsplash.com/photo-1578926375605-eaf7559b1458?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-      title: "Contemporary Art Collection",
-      description: "Discover limited edition prints from emerging artists",
-      ctaHighlight: "New Arrivals",
-      price: "$129 - $599",
-      artist: "Maria Chen",
-      rating: 4.8,
+      image_url: hero1,
+      description: {
+        en: "Premium handcrafted Khan Kapda fabrics for traditional attire",
+        mr: "पारंपरिक पोशाखांसाठी उत्कृष्ट हाताने तयार केलेले खान कपड्याचे वस्त्र",
+      },
+      ctaHighlight: {
+        en: "Luxury Fabrics",
+        mr: "लक्झरी फॅब्रिक्स",
+      },
+      price: "$79 - $299",
+      artist: {
+        en: "Khan Textile Masters",
+        mr: "खान टेक्सटाईल मास्टर्स",
+      },
+      rating: 4.9,
     },
     {
       id: 2,
-      image_url:
-        "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-      title: "Handcrafted Design Objects",
-      description: "Functional art pieces for your living space",
-      ctaHighlight: "Best Sellers",
-      price: "$89 - $349",
-      artist: "James Wilson",
+      image_url: hero2,
+      description: {
+        en: "Exquisite handcrafted Ganesh idols for festive celebrations",
+        mr: "सणासुदीच्या उत्सवासाठी सुंदर हाताने बनवलेल्या गणेश मूर्ती",
+      },
+      ctaHighlight: {
+        en: "Ganesh Festival Special",
+        mr: "गणेशोत्सव विशेष",
+      },
+      price: "$39 - $349",
+      artist: {
+        en: "Traditional Sculptors",
+        mr: "पारंपरिक शिल्पकार",
+      },
       rating: 4.9,
     },
     {
       id: 3,
-      image_url:
-        "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-      title: "Sustainable Home Decor",
-      description: "Eco-friendly designs that make a statement",
-      ctaHighlight: "Eco Collection",
-      price: "$49 - $299",
-      artist: "Eco Design Collective",
-      rating: 4.7,
+      image_url: hero3,
+      description: {
+        en: "Ganpati Bappa decoration with traditional Khan Kapda drapes",
+        mr: "गणपती बाप्पाच्या सजावटीसाठी पारंपरिक खान कपड्याच्या पडद्यांचा वापर",
+      },
+      ctaHighlight: {
+        en: "Festival Decor",
+        mr: "उत्सव सजावट",
+      },
+      price: "$49 - $199",
+      artist: {
+        en: "Festival Decor Specialists",
+        mr: "उत्सव सजावट तज्ञ",
+      },
+      rating: 4.8,
+    },
+    {
+      id: 4,
+      image_url: hero4,
+      description: {
+        en: "Eco-friendly clay Ganesh idols with organic fabric decorations",
+        mr: "पर्यावरणपूरक मातीच्या गणेश मूर्ती सेंद्रिय कपड्यांच्या सजावटीसह",
+      },
+      ctaHighlight: {
+        en: "Eco-Ganesh Collection",
+        mr: "इको-गणेश संग्रह",
+      },
+      price: "$29 - $179",
+      artist: {
+        en: "Green Artisans Collective",
+        mr: "ग्रीन आर्टिसन कलेक्टिव्ह",
+      },
+      rating: 4.8,
+    },
+    {
+      id: 5,
+      image_url: hero5,
+      description: {
+        en: "Traditional Khan Kapda ceremonial tents and pavilions",
+        mr: "पारंपरिक खान कपड्याचे समारंभासाठीचे मंडप आणि पांडाल",
+      },
+      ctaHighlight: {
+        en: "Premium Decor",
+        mr: "प्रीमियम सजावट",
+      },
+      price: "$199 - $899",
+      artist: {
+        en: "Royal Decorators",
+        mr: "रॉयल डेकोरेटर्स",
+      },
+      rating: 4.9,
     },
   ];
 
@@ -115,7 +169,7 @@ const HeroSection = () => {
           >
             <img
               src={currentItem.image_url}
-              alt={currentItem.title}
+              alt={currentItem[`title_${language}`] || currentItem.title_en}
               className="h-full w-full object-cover object-center"
             />
             <div className="absolute inset-0 bg-black/30"></div>
@@ -132,7 +186,8 @@ const HeroSection = () => {
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ delay: 0.3 }}
               >
-                {currentItem.ctaHighlight}
+                {currentItem.ctaHighlight[language] ||
+                  currentItem.ctaHighlight.en}
               </motion.div>
             )}
 
@@ -142,7 +197,7 @@ const HeroSection = () => {
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.2 }}
             >
-              {currentItem.title}
+              {currentItem[`title_${language}`] || currentItem.title_en}
             </motion.h1>
 
             <motion.p
@@ -151,11 +206,30 @@ const HeroSection = () => {
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.3 }}
             >
-              {currentItem.description}
+              {currentItem.description[language] || currentItem.description.en}
             </motion.p>
 
+            {/* <div className="flex items-center gap-4 mb-6">
+              <span className="text-2xl font-bold text-white">
+                {currentItem.price}
+              </span>
+              <div className="flex items-center gap-2">
+                {renderStars(currentItem.rating)}
+                <span className="text-white text-sm">
+                  ({currentItem.rating})
+                </span>
+              </div>
+            </div> */}
+
+            {/* <div className="flex items-center gap-2 text-white mb-6">
+              <span className="font-medium">By:</span>
+              <span>
+                {currentItem.artist[language] || currentItem.artist.en}
+              </span>
+            </div> */}
+
             <div className="flex flex-wrap gap-4">
-              <motion.button
+              {/* <motion.button
                 className="flex items-center gap-2 bg-white text-gray-900 px-6 py-3 rounded-lg font-medium"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -163,11 +237,10 @@ const HeroSection = () => {
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.4 }}
               >
-                <ShoppingCart size={18} />
-                Add to Cart
-              </motion.button>
+                Shop Now
+              </motion.button> */}
 
-              <motion.button
+              {/* <motion.button
                 className="flex items-center gap-2 bg-transparent border border-white text-white px-6 py-3 rounded-lg font-medium"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -175,9 +248,8 @@ const HeroSection = () => {
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.5 }}
               >
-                <Info size={18} />
                 View Details
-              </motion.button>
+              </motion.button> */}
             </div>
           </div>
         </div>

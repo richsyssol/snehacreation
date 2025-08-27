@@ -21,7 +21,9 @@ const ProductShowcase = () => {
         setLoading(true);
 
         // Fetch products
-        const productsResponse = await fetch("http://127.0.0.1:8000/products");
+        const productsResponse = await fetch(
+          "https://snehas.demovoting.com/products"
+        );
         if (!productsResponse.ok) {
           throw new Error(`HTTP error! status: ${productsResponse.status}`);
         }
@@ -29,7 +31,7 @@ const ProductShowcase = () => {
 
         // Fetch categories
         const categoriesResponse = await fetch(
-          "http://127.0.0.1:8000/categories"
+          "https://snehas.demovoting.com/categories"
         );
         if (!categoriesResponse.ok) {
           throw new Error(`HTTP error! status: ${categoriesResponse.status}`);
@@ -70,7 +72,7 @@ const ProductShowcase = () => {
       categoryMarathi: apiProduct.category?.name_mr || "श्रेणी नाही",
       image:
         apiProduct.images && apiProduct.images.length > 0
-          ? `http://127.0.0.1:8000/uploads/${apiProduct.images[0]}`
+          ? `https://snehas.demovoting.com/uploads/${apiProduct.images[0]}`
           : "https://via.placeholder.com/300x300?text=No+Image",
       description: apiProduct.description_en,
       price: parseFloat(apiProduct.price),
@@ -123,7 +125,9 @@ const ProductShowcase = () => {
       setError(null);
 
       // Fetch products
-      const productsResponse = await fetch("http://127.0.0.1:8000/products");
+      const productsResponse = await fetch(
+        "https://snehas.demovoting.com/products"
+      );
       if (!productsResponse.ok) {
         throw new Error(`HTTP error! status: ${productsResponse.status}`);
       }
@@ -131,7 +135,7 @@ const ProductShowcase = () => {
 
       // Fetch categories
       const categoriesResponse = await fetch(
-        "http://127.0.0.1:8000/categories"
+        "https://snehas.demovoting.com/categories"
       );
       if (!categoriesResponse.ok) {
         throw new Error(`HTTP error! status: ${categoriesResponse.status}`);
